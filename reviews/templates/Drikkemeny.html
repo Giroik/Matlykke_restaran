@@ -1,0 +1,85 @@
+{%extends 'Sablon.html'%}
+{%load static%}
+
+{%block chois%}
+<h1>Middagsmeny</h1>
+<div id="block222" class="radioKnapper">
+    <div class="radio">
+        <input type="radio" name="midmeny" class="myCheckbox" id="VinOn" onclick="ViseMidd('Forrett')">
+        <label for="VinOn" class="LableCheck">Vin</label>
+    </div>
+    <div class="radio">
+        <input type="radio" name="midmeny" class="myCheckbox" id="OlOn" onclick="ViseMidd('Hovedrett')">
+        <label for="OlOn" class="LableCheck">Øl</label>
+    </div>
+    <div class="radio">
+        <input type="radio" name="midmeny" class="myCheckbox" id="MineralOn" onclick="ViseMidd('Dessert')">
+        <label for="MineralOn" class="LableCheck">Mineral</label>
+    </div>
+</div>
+{%endblock%}
+
+{%block content%}
+
+        <div style="display:flex;flex-direction:column; aling-items:center;">
+
+                <div class="drikke">
+                    <h1>Vin</h1>
+                    <select id="VinnSel">
+                        {%for g in Masiv1%}
+                            <option>{{g.Name}}</option>
+                        {%endfor%}
+                    </select>
+                    <select id="OlSel">
+                        {%for g in Masiv2%}
+                        <option>{{g.Name}}</option>
+                        {%endfor%}
+                    </select>
+                    <select id="MinerallSel">
+                        {%for g in Masiv3%}
+                            <option>{{g.Name}}</option>
+                        {%endfor%}
+                    </select>
+                    <div id="Vin" style="display:flex; justify-content:center;" >
+                        {%for g in Masiv1%}
+                            <div id="{{i.choseId}}" class="middMatt">
+                                <h2>{{g.Name}}</h2>
+                                <img src="{% static g.link %}" class="lunchBilde">
+                                <h3>{{g.info}}</h3>
+                                <p><b>Pris: {{g.pris}}$</b></p>
+                                <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
+                                <button class="btnMoreeee" onclick="MinOnclick('{{g.LevId}}','{{g.Name}}',{{g.pris}},{g.iVerdi}},'{{g.prisId1}}')">ta ut av kurven</button>
+                            </div>
+                        {%endfor%}
+                    </div><br><br><br>
+
+                    <div id="Ol" style="display:flex; justify-content:center;">
+                        {%for g in Masiv2%}
+                            <div id="{{i.choseId}}" class="middMatt">
+                                <h2>{{g.Name}}</h2>
+                                <img src="{% static g.link %}" class="lunchBilde">
+                                <h3>{{g.info}}</h3>
+                                <p><b>Pris: {{g.pris}}$</b></p>
+                                <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
+                                <button class="btnMoreeee" onclick="MinOnclick('{{g.LevId}}','{{g.Name}}',{{g.pris}},{g.iVerdi}},'{{g.prisId1}}')">ta ut av kurven</button>
+                            </div>
+                        {%endfor%}
+                    </div><br><br><br><br><br><br>
+                    <div id="Mineral" style="display:flex; justify-content:center;  ">
+                        {%for g in Masiv2%}
+                            <div id="{{i.choseId}}" class="middMatt">
+                                <h2>{{g.Name}}</h2>
+                                <img src="{% static g.link %}" class="lunchBilde">
+                                <h3>{{g.info}}</h3>
+                                <p><b>Pris: {{g.pris}}$</b></p>
+                                <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
+                                <button class="btnMoreeee" onclick="MinOnclick('{{g.LevId}}','{{g.Name}}',{{g.pris}},{g.iVerdi}},'{{g.prisId1}}')">ta ut av kurven</button>
+                            </div>
+                        {%endfor%}
+                    </div>
+
+
+
+                </div>
+        </div>
+{%endblock content%}

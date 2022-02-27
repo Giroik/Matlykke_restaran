@@ -1,0 +1,73 @@
+{%load static%}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{%static 'css/Style.css'%}">
+    <title>Venera project</title>
+</head>
+<body id="wolf">
+<img id="bakBilde" src="{%static 'images/img1.jpg'%}">
+
+<div class="main" id="main">
+    <div id="background"></div>
+    <div id="kurv">
+        <h2>Varene i kurven: </h2>
+        <h2 style="width:29px;" id="varene">0</h2>
+        <button onclick="visKvit()">Vise varene</button>
+    </div>
+
+    <header>
+
+        <div class="meny">
+            <div class="menyEl"><a href="Lunsjmeny" class="chois"><b>Lunsjmeny</b></a></div>
+            <div class="menyEl"><a href="Middagsmeny" class="chois"><b>Middagsmeny</b></a></div>
+            <div class="menyEl"><a href="Drikkemeny" class="chois"><b>Drikkemeny</b></a></div>
+            <div class="menyEl"><a href="Bordbestilling" class="chois"><b>Bordbestilling</b></a></div>
+        </div>
+    </header>
+    <main>
+        {% block chois%}{%endblock chois%}
+
+        {% block content%}{%endblock content%}
+    </main>
+    <footer>
+        <div id="KvitBack">
+            <div id="kvitering">
+                <h2 style="font-size:40px;">I kurven</h2>
+                <div id="scroll">
+                    <div id="Shablon" class="KvitLi" style="display: none;">
+                        <h4></h4>
+                        <div class="PlusMinus">
+                            <input type="button" class="BtnMin" value="-" id="ShablonMinbtn">
+                            <p id="ShablonAntal">1</p>
+                            <input type="button" class="BtnPlus" value="+" id="ShablonMaxbtn">
+                        </div>
+                        <div class="KvitPris">
+                            <p id="ShablonPris"></p>
+                            <span class="close" id="ShablonClose"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="Kvn">
+                    <h2>Pris: </h2>
+                    <h2 id="KvitBigPris">0</h2>
+                </div>
+                <div id="KvitKnaper">
+                    <button onclick="kvitering()" id="Betal" class="KvitKnap">Betale</button>
+                    <button onclick="Tilbake()" id="FoKvit" class="KvitKnap">Gå tilbake</button>
+                    <button onclick="allLegeUt()" id="allLegeUt" class="KvitKnap">Lege ut alle varene</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="{%static 'js/script.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{%extends 'Sablon.html'%}
+{%load static%}
+
+{%block chois%}
+
+
+{%endblock%}
+
+{%block content%}
+        <h1>Middagsmeny</h1>
+        <div class="middagsmenyEl" id="alleMiddagsVariantene" style="display:flex;">
+            {%for i in Masiv%}
+                <div class="middMatt" id="{{i.idBox}}">
+                    <h2 class="zagol">{{i.Name}}</h2>
+                    <img class="MiddBilde" src= "{%static i.link %}">
+                    <div class="choseDiv">
+                        <input class="MiddagChoisInfo" name="{{i.namm}}" type="radio" onclick="showDivInfo('{{i.DivInformation}}','{{i.choseId}}',{{i.Del}})" id="{{i.choseId}}"><br>
+                        <label class="MdiddagLable" for="{{i.choseId}}">Les mer</label><br><br>
+                    </div>
+                    <div class="infoBlocker" style="display:none;" id="{{i.DivInformation}}">
+                        <h3 class="delInfo">{{i.info}}</h3>
+                        <p><b>Pris: {{i.pris}}$</b></p>
+                    </div>
+
+                    <button class="btnMoreeee" onclick="CreateKvitEl('{{i.LevId}}','{{i.Name}}',{{i.pris}},{{i.iVerdi}},'{{i.prisId1}}')">legg i kurven</button>
+                    <button class="btnMoreeee" onclick="MinOnclick('{{i.LevId}}','{{i.Name}}',{{i.pris}},{{i.iVerdi}},'{{i.prisId1}}')">ta ut av kurven</button>
+                </div>
+            {%endfor%}
+        </div>
+
+
+{%endblock content%}

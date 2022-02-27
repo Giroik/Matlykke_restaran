@@ -1,0 +1,50 @@
+{%extends 'Sablon.html'%}
+{%load static%}
+{% block chois%}
+<h1>Lunsjmeny</h1>
+<div id="block111" class="checkboxes">
+    <div>
+        <input type="checkbox" class="myCheckbox" id="check1" onclick="visse('BurgerBox')">
+        <label for="check1" class="CheckLable">Burger</label>
+    </div>
+    <div>
+        <input type="checkbox" class="myCheckbox" id="check2" onclick="visse('ButerBox')">
+        <label for="check2" class="CheckLable">Buter</label>
+    </div>
+    <div>
+        <input type="checkbox" class="myCheckbox" id="check3" onclick="visse('SalatBox')">
+        <label for="check3" class="CheckLable">Salat</label>
+    </div>
+    <div>
+        <input type="checkbox" class="myCheckbox" id="check4" onclick="visse('SuppeBox')">
+        <label for="check4" class="CheckLable">Suppe</label>
+    </div>
+    <div>
+        <input type="checkbox" class="myCheckbox" id="check5" onclick="visse('KasjaBox')">
+        <label for="check5" class="CheckLable">Grøt</label>
+    </div>
+
+
+
+</div>
+{%endblock%}
+
+{%block content%}
+<div id="lunch">
+
+    {% for i in AllInfo%}
+    <div class="lunchBlock" id="{{i.idBox}}">
+        <h2 class="zagol">{{i.Name}}</h2>
+        <img class="lunchBilde" src= "{%static i.link %}">
+        <h3>{{i.info}}</h3>
+        <p>Pris: <b>{{i.pris}}$</b></p>
+        <button class="btnMoreeee" onclick="CreateKvitEl('{{i.LevId}}','{{i.Name}}',{{i.pris}},{{i.iVerdi}},'{{i.prisId1}}')">legg i kurven</button>
+        <button class="btnMoreeee" onclick="MinOnclick('{{i.LevId}}','{{i.Name}}',{{i.pris}},{{i.iVerdi}},'{{i.prisId1}}')">ta ut av kurven</button>
+    </div>
+    {%endfor%}
+
+</div>
+{%endblock%}
+
+
+
