@@ -176,6 +176,8 @@
             summen+=varene[iVerdi]["pris"]
             document.getElementById("KvitBigPris").innerHTML=summen+"€"
 
+
+            console.log("a","b","c")
             spanEl.addEventListener('click', function(){
             dalateElem(Antid,blockId,priss,iVerdi);
             });
