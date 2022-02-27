@@ -178,6 +178,9 @@
 
 
             console.log("a","b","c")
+            console.log("a","b","c")
+            console.log("a","b","c")
+            console.log("a","b","c")
             spanEl.addEventListener('click', function(){
             dalateElem(Antid,blockId,priss,iVerdi);
             });
