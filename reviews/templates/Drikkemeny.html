@@ -48,7 +48,7 @@
                                 <h3>{{g.info}}</h3>
                                 <p><b>Pris: {{g.pris}}$</b></p>
                                 <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
-                                <button class="btnMoreeee" onclick="MinOnclick('{{g.LevId}}','{{g.Name}}',{{g.pris}},{g.iVerdi}},'{{g.prisId1}}')">ta ut av kurven</button>
+                                <button class="btnMoreeee" onclick="MinOnclick({g.iVerdi}})">ta ut av kurven</button>
                             </div>
                         {%endfor%}
                     </div><br><br><br>
@@ -61,7 +61,7 @@
                                 <h3>{{g.info}}</h3>
                                 <p><b>Pris: {{g.pris}}$</b></p>
                                 <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
-                                <button class="btnMoreeee" onclick="MinOnclick('{{g.LevId}}','{{g.Name}}',{{g.pris}},{g.iVerdi}},'{{g.prisId1}}')">ta ut av kurven</button>
+                                <button class="btnMoreeee" onclick="MinOnclick({g.iVerdi}})">ta ut av kurven</button>
                             </div>
                         {%endfor%}
                     </div><br><br><br><br><br><br>
@@ -73,7 +73,7 @@
                                 <h3>{{g.info}}</h3>
                                 <p><b>Pris: {{g.pris}}$</b></p>
                                 <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
-                                <button class="btnMoreeee" onclick="MinOnclick('{{g.LevId}}','{{g.Name}}',{{g.pris}},{g.iVerdi}},'{{g.prisId1}}')">ta ut av kurven</button>
+                                <button class="btnMoreeee" onclick="MinOnclick({g.iVerdi}})">ta ut av kurven</button>
                             </div>
                         {%endfor%}
                     </div>

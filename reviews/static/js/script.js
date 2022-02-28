@@ -164,52 +164,50 @@
             const btnMinEl=shablon.querySelector("#ShablonMinbtn")
             const btnMerEl=shablon.querySelector("#ShablonMaxbtn")
             const prisEl=shablon.querySelector("#ShablonPris")
+
             shablon.setAttribute("index",iVerdi)
+
             KvitNames.push(varene[iVerdi]["Name"])
-            console.log(document.querySelector("[index='5']"))
-            //prisId=varene[iVerdi]["PrisId"]
             nameEl.innerHTML=varene[iVerdi]["Name"]
             prisEl.innerHTML=varene[iVerdi]["pris"]
-            console.log(shablon.getAttribute("index"))
+
             shablon.style.display="flex";
             scroll.appendChild(shablon)
             summen+=varene[iVerdi]["pris"]
             document.getElementById("KvitBigPris").innerHTML=summen+"€"
 
-
-            console.log("a","b","c")
-            console.log("a","b","c")
-            console.log("a","b","c")
-            console.log("a","b","c")
             spanEl.addEventListener('click', function(){
-            dalateElem(Antid,blockId,priss,iVerdi);
-            });
-
-            btnMinEl.addEventListener('click', function(){
-            MinOnclick(Antid,blockId,priss,iVerdi,prisId);
+            dalateElem(shablon,iVerdi);
             });
 
             /*btnMerEl.addEventListener('click', function(){
             MaxOnclick(Antid,blockId,priss,iVerdi,prisId);
             });*/
             btnMerEl.addEventListener('click', function(){
-                MaxOnclick(shablon)
+                MaxOnclick(shablon,iVerdi)
             });
+
+            btnMinEl.addEventListener('click', function(){
+            MinOnclick(iVerdi);
+            });
+
         }
         else
         {
-        const selector ="[index='"+String(iVerdi)+"']"
+            const selector ="[index='"+String(iVerdi)+"']"
             document.querySelector(selector).querySelector("#ShablonMaxbtn").click()
 
         }
     }
 
-    function MaxOnclick(shablon)
+    function MaxOnclick(shablon,iVerdi)
     {
+
             shablon.querySelector("#ShablonAntal").innerHTML=String(Number(shablon.querySelector("#ShablonAntal").innerHTML)+1)
             shablon.querySelector("#ShablonPris").innerHTML=Number(shablon.querySelector("#ShablonAntal").innerHTML)*varene[iVerdi]["pris"]
             summen+=varene[iVerdi]["pris"]
             document.getElementById("KvitBigPris").innerHTML=summen+"€"
+
         /*summenAvVarene++
         antalVarene[iVerdi]+=1
         summen+=priss
@@ -224,41 +222,40 @@
 
     }
 
-    function MinOnclick(Antid,blockId, priss, iVerdi, prisId)
+    function MinOnclick(iVerdi)
     {
-        if(antalVarene[iVerdi]>0)
+        const selector ="[index='"+String(iVerdi)+"']"
+        const shablon=document.querySelector(selector)
+        if(shablon)
         {
-            summenAvVarene--
-            antalVarene[iVerdi]-=1
-            summen-=priss
-            document.getElementById(prisId).innerHTML=priss * antalVarene[iVerdi] +"€"
-            document.getElementById(Antid).innerHTML=antalVarene[iVerdi]
+            shablon.querySelector("#ShablonAntal").innerHTML=String(Number(shablon.querySelector("#ShablonAntal").innerHTML)-1)
+            shablon.querySelector("#ShablonPris").innerHTML=Number(shablon.querySelector("#ShablonAntal").innerHTML)*varene[iVerdi]["pris"]
+            summen-=varene[iVerdi]["pris"]
             document.getElementById("KvitBigPris").innerHTML=summen+"€"
-            document.getElementById("varene").innerHTML=summenAvVarene
-            if(antalVarene[iVerdi]<=0)
+            document.getElementById("varene").innerHTML=--summenAvVarene
+
+            if(shablon.querySelector("#ShablonAntal").innerHTML==0)
             {
-                document.getElementById(blockId).style.display="none";
+                KvitNames=KvitNames.filter((item)=>item!=shablon.querySelector("h4").innerHTML)
+                shablon.remove()
+
             }
         }
-        else
-        {
-            alert("Du har ikke legga den varen in i kurven")
-        }
+
 
     }
 
-    function dalateElem(Antid,blockId,priss,iVerdi)
+    function dalateElem(shablon,iVerdi)
     {
-        summen-=antalVarene[iVerdi]*priss
-        summenAvVarene-=antalVarene[iVerdi]
-        antalVarene[iVerdi]=0
-        let id1=varene[iVerdi]["PrisId"]
-        document.getElementById(id1).innerHTML=0+"€"
-        document.getElementById(Antid).innerHTML=antalVarene[iVerdi]
-        document.getElementById("varene").innerHTML=summenAvVarene
+        summenAvVarene-=shablon.querySelector("#ShablonAntal").innerHTML
+        summen-= (varene[iVerdi]["pris"]) * Number(shablon.querySelector("#ShablonAntal").innerHTML)
+        shablon.querySelector("#ShablonAntal").innerHTML=0
+        shablon.querySelector("#ShablonPris").innerHTML=0
         document.getElementById("KvitBigPris").innerHTML=summen+"€"
-        document.getElementById(blockId).style.display="none";
+
+        document.getElementById("varene").innerHTML=summenAvVarene
     }
+
     function visKvit()
     {
         document.getElementById("KvitBack").style.display="block"
@@ -273,8 +270,6 @@
             if(confirm("Er du sikert at du vil betale?")==true)
             {
                 location.reload();
-
-
             }
         }
         else
@@ -293,23 +288,8 @@
     function allLegeUt()
     {
 
-        document.getElementById("KvitBigPris").innerHTML=0+"€"
-        document.getElementById("varene").innerHTML=0
-        summenAvVarene=0
-        summen=0
-        for(let i=0;i<varene.length;i++)
-        {
-            antalVarene[i]=0
-            let id=varene[i]["Name"]
-            let id1=varene[i]["antal"]
-            let id2=varene[i]["PrisId"]
-            document.getElementById(id).style.display="none";
-            document.getElementById(id1).innerHTML=0
-            document.getElementById(id2).innerHTML=varene[i]["pris"]
-        }
-
-
     }
+
     /*******************Tables****************/
      const tables = document.querySelectorAll(".tabel")
      tables.forEach((table)=>{
