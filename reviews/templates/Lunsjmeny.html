@@ -39,7 +39,7 @@
         <h3>{{i.info}}</h3>
         <p>Pris: <b>{{i.pris}}$</b></p>
         <button class="btnMoreeee" onclick="CreateKvitEl('{{i.LevId}}','{{i.Name}}',{{i.pris}},{{i.iVerdi}},'{{i.prisId1}}')">legg i kurven</button>
-        <button class="btnMoreeee" onclick="MinOnclick('{{i.LevId}}','{{i.Name}}',{{i.pris}},{{i.iVerdi}},'{{i.prisId1}}')">ta ut av kurven</button>
+        <button class="btnMoreeee" onclick="MinOnclick({{i.iVerdi}}')">ta ut av kurven</button>
     </div>
     {%endfor%}
 
