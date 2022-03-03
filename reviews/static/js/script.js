@@ -14,7 +14,16 @@
         {"Name":"Jogurt","BtnMinId":"JogurtMinbtn" , "BtnMaxId":"JogurtMaxbtn", "butId":"bstJogurt", "pris":3, "antal":"JogurtAntal","PrisId":"JogurtPris"},
         {"Name":"Kake","BtnMinId":"KakeMinbtn" , "BtnMaxId":"KakeMaxbtn", "butId":"bstKake", "pris":17, "antal":"KakeAntal","PrisId":"KakePris"},
         {"Name":"Vin","BtnMinId":"VinMinbtn" , "BtnMaxId":"VinMaxbtn", "butId":"bstVin", "pris":5, "antal":"VinAntal","PrisId":"VinPris"},
+        {"Name":"Hvitvin","BtnMinId":"HvitvinMinbtn" , "BtnMaxId":"HvitvinMaxbtn", "butId":"bstHvitvin", "pris":8, "antal":"HvitvinAntal","PrisId":"HvitvinPris"},
+        {"Name":"Musserende vinn","BtnMinId":"MusserendeVinnMinbtn" , "BtnMaxId":"MusserendeVinnMaxbtn", "butId":"bstMusserendeVinn", "pris":10, "antal":"MusserendeVinnAntal","PrisId":"MusserendeVinnPris"},
+        {"Name":"Lys Øl","BtnMinId":"LysOlMinbtn" , "BtnMaxId":"LysOlMaxbtn", "butId":"bstLysOl", "pris":7, "antal":"LysOlAntal","PrisId":"LysOlPris"},
+        {"Name":"Pale Øl","BtnMinId":"PaleOlMinbtn" , "BtnMaxId":"PaleOlMaxbtn", "butId":"bstPaleOl", "pris":5, "antal":"PaleOlAntal","PrisId":"PaleOlPris"},
+        {"Name":"Belgian Øl","BtnMinId":"BelgianOlMinbtn" , "BtnMaxId":"BelgianOlMaxbtn", "butId":"bstBelgianOl", "pris":2, "antal":"BelgianOlAntal","PrisId":"BelgianOlPris"},
+        {"Name":"Vann","BtnMinId":"VannMinbtn" , "BtnMaxId":"VannMaxbtn", "butId":"bstVann", "pris":1, "antal":"VannAntal","PrisId":"VannPris"},
+        {"Name":"Fanta","BtnMinId":"FantaMinbtn" , "BtnMaxId":"FantaMaxbtn", "butId":"bstFanta", "pris":2, "antal":"FantaAntal","PrisId":"FantaPris"},
+        {"Name":"CocaCola","BtnMinId":"CocaColaMinbtn" , "BtnMaxId":"CocaColaMaxbtn", "butId":"bstCocaCola", "pris":2, "antal":"BelgianCocaCola","PrisId":"BelgianCocaCola"},
     ]
+
      let inf1=["RatatouilleInfo","КekerInfo","FiskInfo"]
      let inf2=["PlovInfo","KillingInfo","Fisk_og_SalatInfo"]
      let inf3=["PuddingInfo","JogurtInfo", "KakeInfo"]
@@ -148,7 +157,6 @@
         }*/
 
     let summenAvVarene=0
-    let antalVarene=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     let summen=0
     let KvitNames=[]
     function CreateKvitEl(Antid,blockId, priss, iVerdi, prisId)
@@ -224,12 +232,13 @@
 
     function MinOnclick(iVerdi)
     {
+        console.log(1111111)
         const selector ="[index='"+String(iVerdi)+"']"
         const shablon=document.querySelector(selector)
         if(shablon)
         {
             shablon.querySelector("#ShablonAntal").innerHTML=String(Number(shablon.querySelector("#ShablonAntal").innerHTML)-1)
-            shablon.querySelector("#ShablonPris").innerHTML=Number(shablon.querySelector("#ShablonAntal").innerHTML)*varene[iVerdi]["pris"]
+            shablon.querySelector("#ShablonPris").innerHTML=(Number(shablon.querySelector("#ShablonAntal").innerHTML)*varene[iVerdi]["pris"])+"€"
             summen-=varene[iVerdi]["pris"]
             document.getElementById("KvitBigPris").innerHTML=summen+"€"
             document.getElementById("varene").innerHTML=--summenAvVarene
@@ -250,10 +259,10 @@
         summenAvVarene-=shablon.querySelector("#ShablonAntal").innerHTML
         summen-= (varene[iVerdi]["pris"]) * Number(shablon.querySelector("#ShablonAntal").innerHTML)
         shablon.querySelector("#ShablonAntal").innerHTML=0
-        shablon.querySelector("#ShablonPris").innerHTML=0
+        shablon.querySelector("#ShablonPris").innerHTML=0+"€"
         document.getElementById("KvitBigPris").innerHTML=summen+"€"
-
         document.getElementById("varene").innerHTML=summenAvVarene
+        shablon.remove()
     }
 
     function visKvit()
@@ -287,8 +296,71 @@
     }
     function allLegeUt()
     {
+        let a=0
+        const mainEl=document.querySelector("#scroll")
+        mainEl.querySelectorAll(".KvitLi").forEach((item)=>{
+
+            if(a>0)
+            {
+                summenAvVarene=0
+                summen=0
+                item.querySelector("#ShablonAntal").innerHTML=0
+                item.querySelector("#ShablonPris").innerHTML=0
+                document.getElementById("KvitBigPris").innerHTML=summen+"€"
+                document.getElementById("varene").innerHTML=summenAvVarene
+                KvitNames=KvitNames.filter((item2)=>item2!=item.querySelector("h4").innerHTML)
+                item.remove()
+            }
+        a++
+        })
 
     }
+    /*********drikkemeny************/
+
+        const alledrikkene=document.querySelectorAll(".radio")
+        alledrikkene.forEach((item)=>{
+        item.onclick=()=>{
+        alledrikkene.forEach((item)=>{
+            let block=document.getElementById(item.id.replace("_block",""))
+            block.style.display="none"
+        })
+        let block=document.getElementById(item.id.replace("_block",""))
+        bindFilter(block)
+        block.style.display="block"
+
+
+        }
+    })
+
+    function bindFilter(block)
+    {
+
+        const select=block.querySelector(".selectDrikker")
+        console.log(select)
+        select.addEventListener("change",(value)=>{
+        console.log(select.value)
+        block.querySelectorAll(".middMatt").forEach((item)=>{
+
+            if(select.value=="all")
+            {
+                item.style.display="block"
+                block.querySelector(".wrapper").classList.remove("wrapper_one")
+            }
+            else
+            {
+            block.querySelector(".wrapper").classList.add("wrapper_one")
+            if(item.id!=select.value)
+            {item.style.display="none"}
+            else
+            {item.style.display="block"}
+            }
+
+        })
+    })
+    }
+
+
+
 
     /*******************Tables****************/
      const tables = document.querySelectorAll(".tabel")
@@ -298,3 +370,6 @@
         }
      });
     document.querySelector("form").onsubmit=(e)=>{e.preventDefault(); alert(document.querySelector(".Tnumber1").value+" your table is "+ document.querySelector("#Tnumber").value)}
+
+
+

@@ -16,8 +16,6 @@ def start(request):
 def butiken(request):
     masiven=[
         {"Name": "Ratatouille","Del":1,"DivInformation":"RatatouilleInfo","namm":"one","choseId":"Ratatouilleidee","iVerdi":5,"LevId":"RatatouilleAntal","prisId1": "RatatouillePris","link": "images/middagsmeny/forrett/Ratatui.jpg", "butId": "bstRatatouille", "pris": 10, "idBox": "RatatouilleBox","info":"Ratatouille er en tradisjonell grønnsaksrett av provençalsk mat laget av pepper, aubergine og zucchini, på mange måter lik den ungarske lechoen."},
-
-
         {"Name": "Кeker","Del":2,"DivInformation":"КekerInfo","namm":"one","choseId":"Кekeridee", "iVerdi": 6, "LevId": "КekerAntal", "prisId1": "КekerPris","link":"images/middagsmeny/forrett/krevetki.jpg","butId": "bstКeker", "pris": 5, "idBox": "КekerBox","info":"det er en sjømat som konsumeres over hele verden. Selv om reker og reker er i forskjellige underordner av Decapoda, er de veldig like i utseende og begrepene brukes ofte om hverandre i kommersielt oppdrett og i naturen."},
         {"Name": "Fisk","Del":3,"DivInformation":"FiskInfo","namm":"one","choseId":"Fiskidee", "iVerdi": 7, "LevId": "FiskAntal", "prisId1": "FiskPris","link":"images/middagsmeny/forrett/FiskBrod.jpg","butId": "bstFisk", "pris": 2, "idBox": "FiskBox","info":"Fisk er en god kilde til næringsstoffer som protein, vitamin B12, jod og selen. Fisk, spesielt de halvfete fiskene som rødspette, steinbit og kveite og fete fisker som laks, makrell, sild, ørret, ål, kveite og sardiner er hovedkilde til de marine omega-3 fettsyrene i kostholdet."},
         {"Name": "Plov","Del":4,"DivInformation":"PlovInfo","namm":"two","choseId":"Plovidee","iVerdi":8,"LevId":"PlovAntal","prisId1": "PlovPris","link": "images/middagsmeny/Hovedrett/Plov.jpg", "butId": "bstPlov", "pris": 10, "idBox": "PlovBox","info":"Ratatouille er en tradisjonell grønnsaksrett av provençalsk mat laget av pepper, aubergine og zucchini, på mange måter lik den ungarske lechoen."},
@@ -32,43 +30,29 @@ def butiken(request):
 
 def tilbakeMening(request):
     masiven1=[
-        {"Name": "Rødvin", "choseId": "Rødvin", "iVerdi": 14, "LevId": "RødvinAntal", "prisId1": "RødvinPris",
-        "link": "images/drikke/vin/Rødvin.jpg", "butId": "bstRødvin", "pris": 5, "idBox": "RødvinBox",
-        "info": "Ganske greit Rødvin"},
+        {"Name": "Rødvin", "choseId": "Rodvin", "iVerdi": 14, "LevId": "RodvinAntal", "prisId1": "RodvinPris",
+        "link": "images/drikke/vin/Rødvin.jpg", "butId": "bstRodvin", "pris": 5, "idBox": "RodvinBox"},
         {"Name": "Hvitvin", "choseId": "Hvitvin", "iVerdi": 15, "LevId": "HvitvinAntal", "prisId1": "HvitvinPris",
-        "link": "images/drikke/vin/Hvitvin.jpg", "butId": "bstHvitvin", "pris": 8, "idBox": "HvitvinBox",
-        "info": "Vanlig Vin"},
-        {"Name": "Musserende_vin", "choseId": "Musserende_vin", "iVerdi": 16, "LevId": "Musserende_vinAntal", "prisId1": "Musserende_vinPris",
-        "link": "images/drikke/vin/Musserende_vin.jpg", "butId": "bstMusserende_vin", "pris": 10, "idBox": "Musserende_vinBox",
-        "info": "Vanlig Musserende_vin"},
+        "link": "images/drikke/vin/Hvitvin.jpg", "butId": "bstHvitvin", "pris": 8, "idBox": "HvitvinBox"},
+        {"Name": "Musserende vin", "choseId": "Musserende_vin", "iVerdi": 16, "LevId": "Musserende_vinAntal", "prisId1": "Musserende_vinPris",
+        "link": "images/drikke/vin/Musserende_vin.jpg", "butId": "bstMusserende_vin", "pris": 10, "idBox": "Musserende_vinBox"},
         ]
     masiven2=[
         {"Name": "Lys Øl", "choseId": "Lys_Ol", "iVerdi": 17, "LevId": "Lys_OlAntal", "prisId1": "Lys_OlPris",
-        "link": "images/middagsmeny/forrett/FiskBrod.jpg", "butId": "bstLys_Ol", "pris": 9, "idBox": "Lys_OlBox",
-        "info": "Lys_Ol"},
-        {"Name": "Hvitvin", "choseId": "Vin", "iVerdi": 18, "LevId": "VinAntal", "prisId1": "VinPris",
-        "link": "images/middagsmeny/forrett/FiskBrod.jpg", "butId": "bstVin", "pris": 5, "idBox": "VinBox",
-        "info": "Vanlig Vin"},
-        {"Name": "Musserende vin", "choseId": "Vin", "iVerdi": 19, "LevId": "VinAntal", "prisId1": "VinPris",
-        "link": "images/middagsmeny/forrett/FiskBrod.jpg", "butId": "bstVin", "pris": 5, "idBox": "VinBox",
-        "info": "Vanlig Vin"},
+        "link": "images/drikke/Ol/HvitOl.jpg", "butId": "bstLys_Ol", "pris": 7, "idBox": "Lys_OlBox",},
+        {"Name": "Pale Øl", "choseId": "PaleOl", "iVerdi": 18, "LevId": "PaleOlAntal", "prisId1": "PaleOlPris",
+        "link": "images/drikke/Ol/BelgianAle.jpg", "butId": "bstPaleOl", "pris": 5, "idBox": "PaleOlBox"},
+        {"Name": "Belgian Øl", "choseId": "BelgianOl", "iVerdi": 19, "LevId": "BelgianOlAntal", "prisId1": "BelgianOlPris",
+        "link": "images/drikke/Ol/PaleAle.jpg", "butId": "bstBelgianOl", "pris": 2, "idBox": "BelgianOlBox"},
         ]
     masiven3=[
-        {"Name": "Rødvin", "choseId": "Vin", "iVerdi": 20, "LevId": "VinAntal", "prisId1": "VinPris",
-        "link": "images/middagsmeny/forrett/FiskBrod.jpg", "butId": "bstVin", "pris": 5, "idBox": "VinBox",
-        "info": "Vanlig Vin"},
-        {"Name": "Hvitvin", "choseId": "Vin", "iVerdi": 21, "LevId": "VinAntal", "prisId1": "VinPris",
-        "link": "images/middagsmeny/forrett/FiskBrod.jpg", "butId": "bstVin", "pris": 5, "idBox": "VinBox",
-        "info": "Vanlig Vin"},
-        {"Name": "Musserende vin", "choseId": "Vin", "iVerdi": 21, "LevId": "VinAntal", "prisId1": "VinPris",
-        "link": "images/middagsmeny/forrett/FiskBrod.jpg", "butId": "bstVin", "pris": 5, "idBox": "VinBox",
-        "info": "Vanlig Vin"},
+        {"Name": "Vann", "choseId": "Vann", "iVerdi": 20, "LevId": "VannAntal", "prisId1": "VannPris",
+        "link": "images/drikke/Mineral/vann.jpg", "butId": "bstVann", "pris": 1, "idBox": "VannBox"},
+        {"Name": "Fanta", "choseId": "Fanta", "iVerdi": 21, "LevId": "FantaAntal", "prisId1": "FantaPris",
+        "link": "images/drikke/Mineral/Fanta.jpg", "butId": "bstFanta", "pris": 2, "idBox": "FantaBox"},
+        {"Name": "Coca-Cola", "choseId": "CocaCola", "iVerdi": 22, "LevId": "CocaColaAntal", "prisId1": "CocaColaPris",
+        "link": "images/drikke/Mineral/CocaCola.jpg", "butId": "bstCocaCola", "pris": 2, "idBox": "CocaColaBox"},
         ]
-        #{"Name": "Кeker", "Del": 2, "DivInformation": "КekerInfo", "namm": "one", "choseId": "Кekeridee", "iVerdi": 15,
-        #"LevId": "КekerAntal", "prisId1": "КekerPris", "link": "images/middagsmeny/forrett/krevetki.jpg",
-        #"butId": "bstКeker", "pris": 5, "idBox": "КekerBox",
-        #"info": "det er en sjømat som konsumeres over hele verden. Selv om reker og reker er i forskjellige underordner av Decapoda, er de veldig like i utseende og begrepene brukes ofte om hverandre i kommersielt oppdrett og i naturen."},
-
     antal=[
         {"Id":"div1","Name":"Vin"},
         {"Id":"div2","Name":"Øl"},
