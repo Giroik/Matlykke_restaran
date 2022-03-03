@@ -4,16 +4,16 @@
 {%block chois%}
 <h1>Middagsmeny</h1>
 <div id="block222" class="radioKnapper">
-    <div class="radio">
-        <input type="radio" name="midmeny" class="myCheckbox" id="VinOn" onclick="ViseMidd('Forrett')">
+    <div class="radio" id="Vin_block">
+        <input type="radio" name="midmeny" class="myCheckbox" id="VinOn">
         <label for="VinOn" class="LableCheck">Vin</label>
     </div>
-    <div class="radio">
-        <input type="radio" name="midmeny" class="myCheckbox" id="OlOn" onclick="ViseMidd('Hovedrett')">
+    <div class="radio" id="Ol_block">
+        <input type="radio" name="midmeny" class="myCheckbox" id="OlOn">
         <label for="OlOn" class="LableCheck">Øl</label>
     </div>
-    <div class="radio">
-        <input type="radio" name="midmeny" class="myCheckbox" id="MineralOn" onclick="ViseMidd('Dessert')">
+    <div class="radio" id="Mineral_block">
+        <input type="radio" name="midmeny" class="myCheckbox" id="MineralOn">
         <label for="MineralOn" class="LableCheck">Mineral</label>
     </div>
 </div>
@@ -21,65 +21,80 @@
 
 {%block content%}
 
-        <div style="display:flex;flex-direction:column; aling-items:center;">
+<div style="display:flex;flex-direction:column; aling-items:center;">
 
-                <div class="drikke">
-                    <h1>Vin</h1>
-                    <select id="VinnSel">
-                        {%for g in Masiv1%}
-                            <option>{{g.Name}}</option>
-                        {%endfor%}
-                    </select>
-                    <select id="OlSel">
-                        {%for g in Masiv2%}
-                        <option>{{g.Name}}</option>
-                        {%endfor%}
-                    </select>
-                    <select id="MinerallSel">
-                        {%for g in Masiv3%}
-                            <option>{{g.Name}}</option>
-                        {%endfor%}
-                    </select>
-                    <div id="Vin" style="display:flex; justify-content:center;" >
-                        {%for g in Masiv1%}
-                            <div id="{{i.choseId}}" class="middMatt">
-                                <h2>{{g.Name}}</h2>
-                                <img src="{% static g.link %}" class="lunchBilde">
-                                <h3>{{g.info}}</h3>
-                                <p><b>Pris: {{g.pris}}$</b></p>
-                                <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
-                                <button class="btnMoreeee" onclick="MinOnclick({g.iVerdi}})">ta ut av kurven</button>
-                            </div>
-                        {%endfor%}
-                    </div><br><br><br>
+    <div class="drikke" >
 
-                    <div id="Ol" style="display:flex; justify-content:center;">
-                        {%for g in Masiv2%}
-                            <div id="{{i.choseId}}" class="middMatt">
-                                <h2>{{g.Name}}</h2>
-                                <img src="{% static g.link %}" class="lunchBilde">
-                                <h3>{{g.info}}</h3>
-                                <p><b>Pris: {{g.pris}}$</b></p>
-                                <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
-                                <button class="btnMoreeee" onclick="MinOnclick({g.iVerdi}})">ta ut av kurven</button>
-                            </div>
-                        {%endfor%}
-                    </div><br><br><br><br><br><br>
-                    <div id="Mineral" style="display:flex; justify-content:center;  ">
-                        {%for g in Masiv2%}
-                            <div id="{{i.choseId}}" class="middMatt">
-                                <h2>{{g.Name}}</h2>
-                                <img src="{% static g.link %}" class="lunchBilde">
-                                <h3>{{g.info}}</h3>
-                                <p><b>Pris: {{g.pris}}$</b></p>
-                                <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
-                                <button class="btnMoreeee" onclick="MinOnclick({g.iVerdi}})">ta ut av kurven</button>
-                            </div>
-                        {%endfor%}
-                    </div>
+        <div id="Vin" style="display:none;" >
+            <h1 >Vin</h1>
 
+            <select id="VinnSel" class="selectDrikker">
+                <option value="all">Se alle typer av vinn</option>
+                {%for g in Masiv1%}
+                <option value="{{g.choseId}}">{{g.Name}}</option>
+                {%endfor%}
+            </select>
 
-
+            <div class="wrapper">
+                {%for g in Masiv1%}
+                <div id="{{g.choseId}}" class="middMatt">
+                    <h2>{{g.Name}}</h2>
+                    <img src="{% static g.link %}" class="lunchBilde">
+                    <p><b>Pris: {{g.pris}}$</b></p>
+                    <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
+                    <button class="btnMoreeee" onclick="MinOnclick({{g.iVerdi}})">ta ut av kurven</button>
                 </div>
+                {%endfor%}
+            </div>
+
         </div>
+
+        <div id="Ol" style="display:none;">
+            <h1>Øl</h1>
+            <select id="OlSel" class="selectDrikker">
+                <option value="all">Se alle typer av Øl</option>
+                {%for g in Masiv2%}
+                <option value="{{g.choseId}}">{{g.Name}}</option>
+                {%endfor%}
+            </select>
+
+            <div class="wrapper">
+                {%for g in Masiv2%}
+                <div id="{{g.choseId}}" class="middMatt">
+                    <h2>{{g.Name}}</h2>
+                    <img src="{% static g.link %}" class="lunchBilde">
+                    <p><b>Pris: {{g.pris}}$</b></p>
+                    <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
+                    <button class="btnMoreeee" onclick="MinOnclick({{g.iVerdi}})">ta ut av kurven</button>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+
+
+        <div id="Mineral" style="display:none;">
+            <h1>Bruser</h1>
+            <select id="MinerallSel" class="selectDrikker">
+                <option value="all">Se alle typer av bruser</option>
+                {%for g in Masiv3%}
+                <option value="{{g.choseId}}">{{g.Name}}</option>
+                {%endfor%}
+            </select>
+
+            <div class="wrapper">
+                {%for g in Masiv3%}
+                <div id="{{g.choseId}}" class="middMatt">
+                    <h2>{{g.Name}}</h2>
+                    <img src="{% static g.link %}" class="lunchBilde">
+                    <p><b>Pris: {{g.pris}}$</b></p>
+                    <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
+                    <button class="btnMoreeee" onclick="MinOnclick({{g.iVerdi}})">ta ut av kurven</button>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+
+
+    </div>
+</div>
 {%endblock content%}

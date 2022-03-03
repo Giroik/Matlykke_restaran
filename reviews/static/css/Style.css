@@ -82,7 +82,7 @@
     }
         header, main
     {
-        width:100%;
+        width:90%;
         text-align:center;
         display:flex;
         flex-direction:column;
@@ -103,6 +103,28 @@
         z-index:-2;
         height:70%;
         top:-20%;
+    }
+        /*********Drikkemeny***************/
+    .selectDrikker
+    {
+        padding:10px;
+        font-size:20px;
+        border-radius:10px;
+        border:#e4ff00 2px solid;
+        display:inline-block;
+        margin-bottom:20px;
+
+    }
+    .wrapper
+    {
+        display:grid;
+        grid-template-columns:repeat(3, 1fr);
+    }
+
+    .wrapper_one
+    {
+        grid-template-columns:600px;
+        justify-content:center;
     }
 
        /******** Lunsjmeny *********/
@@ -141,6 +163,7 @@
     {
         width:60%;
         height:60%;
+        border-radius:30px;
     }
     .lunchBlock
     {
@@ -245,15 +268,15 @@
 
     .radioKnapper > div:nth-child(1)
     {
-        background-image: url("/static/images/middagsmeny/Icons/forrett.jpg");
+        background-image: url("/static/images/Icons/drikke/vinn.jpg");
     }
     .radioKnapper > div:nth-child(2)
     {
-        background-image: url("/static/images/middagsmeny/Icons/hovedrett.jpg");
+        background-image: url("/static/images/Icons/drikke/Ol.jpg");
     }
     .radioKnapper > div:nth-child(3)
     {
-        background-image: url("/static/images/middagsmeny/Icons/dessert.jpg");
+        background-image: url("/static/images/Icons/drikke/Mineraler.jpg");
     }
 
     .LableCheck
@@ -289,7 +312,7 @@
     }
     .middMatt
     {
-        width:30%;
+
     }
     .middMatt b
     {
