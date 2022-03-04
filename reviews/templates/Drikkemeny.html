@@ -37,10 +37,10 @@
 
             <div class="wrapper">
                 {%for g in Masiv1%}
-                <div id="{{g.choseId}}" class="middMatt">
+                <div id="{{g.choseId}}" class="middMatt2">
                     <h2>{{g.Name}}</h2>
                     <img src="{% static g.link %}" class="lunchBilde">
-                    <p><b>Pris: {{g.pris}}$</b></p>
+                    <p class="PrisSize"> <b>Pris: {{g.pris}}$</b></p>
                     <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
                     <button class="btnMoreeee" onclick="MinOnclick({{g.iVerdi}})">ta ut av kurven</button>
                 </div>
@@ -60,10 +60,10 @@
 
             <div class="wrapper">
                 {%for g in Masiv2%}
-                <div id="{{g.choseId}}" class="middMatt">
+                <div id="{{g.choseId}}" class="middMatt2">
                     <h2>{{g.Name}}</h2>
                     <img src="{% static g.link %}" class="lunchBilde">
-                    <p><b>Pris: {{g.pris}}$</b></p>
+                    <p class="PrisSize"><b>Pris: {{g.pris}}$</b></p>
                     <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
                     <button class="btnMoreeee" onclick="MinOnclick({{g.iVerdi}})">ta ut av kurven</button>
                 </div>
@@ -83,10 +83,10 @@
 
             <div class="wrapper">
                 {%for g in Masiv3%}
-                <div id="{{g.choseId}}" class="middMatt">
+                <div id="{{g.choseId}}" class="middMatt2">
                     <h2>{{g.Name}}</h2>
                     <img src="{% static g.link %}" class="lunchBilde">
-                    <p><b>Pris: {{g.pris}}$</b></p>
+                    <p class="PrisSize"><b>Pris: {{g.pris}}$</b></p>
                     <button class="btnMoreeee" onclick="CreateKvitEl('{{g.LevId}}','{{g.Name}}',{{g.pris}},{{g.iVerdi}},'{{g.prisId1}}')">legg i kurven</button>
                     <button class="btnMoreeee" onclick="MinOnclick({{g.iVerdi}})">ta ut av kurven</button>
                 </div>
