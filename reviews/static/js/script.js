@@ -4,16 +4,16 @@
         {"Name":"Salat","BtnMinId":"SalatMinbtn" , "BtnMaxId":"SalatMaxbtn", "butId":"bstSalat", "pris":5.50, "antal":"SalatAntal","PrisId":"SalatPris"},
         {"Name":"Suppe","BtnMinId":"SuppeMinbtn" , "BtnMaxId":"SuppeMaxbtn", "butId":"bstSuppe", "pris":3, "antal":"SuppeAntal","PrisId":"SuppePris"},
         {"Name":"Grøt","BtnMinId":"GrøtMinbtn" , "BtnMaxId":"GrotMaxbtn", "butId":"bstKasja", "pris":2.50, "antal":"KasjaAntal","PrisId":"GrotPris"},
-        {"Name":"Ratatouille","BtnMinId":"RatatouilleMinbtn" , "BtnMaxId":"RatatouilleMaxbtn", "pris":10, "butId":"bstRatatouille", "antal":"RatatouilleAntal","PrisId":"RatatouillePris"},
+        {"Name":"Ost kuler","BtnMinId":"OstkulerMinbtn" , "BtnMaxId":"OstkulerMaxbtn", "pris":10, "butId":"bstOstkuler", "antal":"OstkulerAntal","PrisId":"OstkulerPris"},
         {"Name":"Кeker","BtnMinId":"КekerMinbtn" , "BtnMaxId":"КekerMaxbtn", "butId":"bstКeker", "pris":5, "antal":"КekerAntal","PrisId":"КekerPris"},
         {"Name":"Fisk","BtnMinId":"FiskMinbtn" , "BtnMaxId":"FiskMaxbtn", "butId":"bstFisk", "pris":2, "antal":"FiskAntal","PrisId":"FiskPris"},
         {"Name":"Plov","BtnMinId":"PlovMinbtn" , "BtnMaxId":"PlovMaxbtn", "butId":"bstPlov", "pris":10, "antal":"PlovAntal","PrisId":"PlovPris"},
         {"Name":"Killing","BtnMinId":"KillingMinbtn" , "BtnMaxId":"KillingMaxbtn", "butId":"KillingFisk", "pris":15, "antal":"KillingAntal","PrisId":"KillingPris"},
-        {"Name":"Fisk_og_Salat","BtnMinId":"FiskSalatMinbtn" , "BtnMaxId":"FiskSalatMaxbtn", "butId":"bstFiskSalat", "pris":1200, "antal":"FiskSalatAntal","PrisId":"FiskSalatPris"},
+        {"Name":"Salat med fisk","BtnMinId":"FiskSalatMinbtn" , "BtnMaxId":"FiskSalatMaxbtn", "butId":"bstFiskSalat", "pris":1200, "antal":"FiskSalatAntal","PrisId":"FiskSalatPris"},
         {"Name":"Pudding","BtnMinId":"PuddingMinbtn" , "BtnMaxId":"PuddingMaxbtn", "butId":"bstPudding", "pris":3, "antal":"PuddingAntal","PrisId":"PuddingPris"},
         {"Name":"Jogurt","BtnMinId":"JogurtMinbtn" , "BtnMaxId":"JogurtMaxbtn", "butId":"bstJogurt", "pris":3, "antal":"JogurtAntal","PrisId":"JogurtPris"},
         {"Name":"Kake","BtnMinId":"KakeMinbtn" , "BtnMaxId":"KakeMaxbtn", "butId":"bstKake", "pris":17, "antal":"KakeAntal","PrisId":"KakePris"},
-        {"Name":"Vin","BtnMinId":"VinMinbtn" , "BtnMaxId":"VinMaxbtn", "butId":"bstVin", "pris":5, "antal":"VinAntal","PrisId":"VinPris"},
+        {"Name":"Rødvin","BtnMinId":"RodvinMinbtn" , "BtnMaxId":"RodvinMaxbtn", "butId":"bstRodvin", "pris":5, "antal":"RodvinAntal","PrisId":"RodvinPris"},
         {"Name":"Hvitvin","BtnMinId":"HvitvinMinbtn" , "BtnMaxId":"HvitvinMaxbtn", "butId":"bstHvitvin", "pris":8, "antal":"HvitvinAntal","PrisId":"HvitvinPris"},
         {"Name":"Musserende vinn","BtnMinId":"MusserendeVinnMinbtn" , "BtnMaxId":"MusserendeVinnMaxbtn", "butId":"bstMusserendeVinn", "pris":10, "antal":"MusserendeVinnAntal","PrisId":"MusserendeVinnPris"},
         {"Name":"Lys Øl","BtnMinId":"LysOlMinbtn" , "BtnMaxId":"LysOlMaxbtn", "butId":"bstLysOl", "pris":7, "antal":"LysOlAntal","PrisId":"LysOlPris"},
@@ -24,12 +24,12 @@
         {"Name":"CocaCola","BtnMinId":"CocaColaMinbtn" , "BtnMaxId":"CocaColaMaxbtn", "butId":"bstCocaCola", "pris":2, "antal":"BelgianCocaCola","PrisId":"BelgianCocaCola"},
     ]
 
-     let inf1=["RatatouilleInfo","КekerInfo","FiskInfo"]
+     let inf1=["OstkulerInfo","КekerInfo","FiskInfo"]
      let inf2=["PlovInfo","KillingInfo","Fisk_og_SalatInfo"]
      let inf3=["PuddingInfo","JogurtInfo", "KakeInfo"]
      let middagsInfo=[inf1,inf2,inf3]
 
-     let info1=["Ratatouilleidee","Кekeridee","Fiskidee"]
+     let info1=["Ostkuleridee","Кekeridee","Fiskidee"]
      let info2=["Plovidee","Killingidee","Fisk_og_Salatidee"]
      let info3=["Puddingidee","Jogurtidee","Kakeidee"]
      let middagsChoisId=[info1,info2,info3]
@@ -177,12 +177,12 @@
 
             KvitNames.push(varene[iVerdi]["Name"])
             nameEl.innerHTML=varene[iVerdi]["Name"]
-            prisEl.innerHTML=varene[iVerdi]["pris"]
+            prisEl.innerHTML=varene[iVerdi]["pris"]+"$"
 
             shablon.style.display="flex";
             scroll.appendChild(shablon)
             summen+=varene[iVerdi]["pris"]
-            document.getElementById("KvitBigPris").innerHTML=summen+"€"
+            document.getElementById("KvitBigPris").innerHTML=summen+"$"
 
             spanEl.addEventListener('click', function(){
             dalateElem(shablon,iVerdi);
@@ -212,9 +212,9 @@
     {
 
             shablon.querySelector("#ShablonAntal").innerHTML=String(Number(shablon.querySelector("#ShablonAntal").innerHTML)+1)
-            shablon.querySelector("#ShablonPris").innerHTML=Number(shablon.querySelector("#ShablonAntal").innerHTML)*varene[iVerdi]["pris"]
+            shablon.querySelector("#ShablonPris").innerHTML=(Number(shablon.querySelector("#ShablonAntal").innerHTML)*varene[iVerdi]["pris"])+"$"
             summen+=varene[iVerdi]["pris"]
-            document.getElementById("KvitBigPris").innerHTML=summen+"€"
+            document.getElementById("KvitBigPris").innerHTML=summen+"$"
 
         /*summenAvVarene++
         antalVarene[iVerdi]+=1
@@ -238,9 +238,9 @@
         if(shablon)
         {
             shablon.querySelector("#ShablonAntal").innerHTML=String(Number(shablon.querySelector("#ShablonAntal").innerHTML)-1)
-            shablon.querySelector("#ShablonPris").innerHTML=(Number(shablon.querySelector("#ShablonAntal").innerHTML)*varene[iVerdi]["pris"])+"€"
+            shablon.querySelector("#ShablonPris").innerHTML=(Number(shablon.querySelector("#ShablonAntal").innerHTML)*varene[iVerdi]["pris"])+"$"
             summen-=varene[iVerdi]["pris"]
-            document.getElementById("KvitBigPris").innerHTML=summen+"€"
+            document.getElementById("KvitBigPris").innerHTML=summen+"$"
             document.getElementById("varene").innerHTML=--summenAvVarene
 
             if(shablon.querySelector("#ShablonAntal").innerHTML==0)
@@ -317,14 +317,14 @@
     }
     /*********drikkemeny************/
 
-        const alledrikkene=document.querySelectorAll(".radio")
+        const alledrikkene=document.querySelectorAll(".myCheckbox")
         alledrikkene.forEach((item)=>{
         item.onclick=()=>{
         alledrikkene.forEach((item)=>{
-            let block=document.getElementById(item.id.replace("_block",""))
+            let block=document.getElementById(item.id.replace("On",""))
             block.style.display="none"
         })
-        let block=document.getElementById(item.id.replace("_block",""))
+        let block=document.getElementById(item.id.replace("On",""))
         bindFilter(block)
         block.style.display="block"
 
@@ -339,7 +339,7 @@
         console.log(select)
         select.addEventListener("change",(value)=>{
         console.log(select.value)
-        block.querySelectorAll(".middMatt").forEach((item)=>{
+        block.querySelectorAll(".middMatt2").forEach((item)=>{
 
             if(select.value=="all")
             {
