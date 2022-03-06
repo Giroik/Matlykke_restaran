@@ -145,7 +145,7 @@
         position:relative;
 
     }
-    .myCheckbox
+    .myCheckbox, .myCheckbox2
     {
         height:10px;
         opacity:0;
@@ -159,7 +159,7 @@
         transition:1s;
 
     }
-    .myCheckbox:checked + label
+    .myCheckbox:checked + label , .myCheckbox2:checked + label
     {
         font-size:40px;
         transition:1s;
@@ -341,39 +341,207 @@
 
 /**************** Bordbestilling*******************/
 
-    .zal{
-    width:300px;
-    height:300px;
-    background:lightblue;
-    position:relative;
-    }
-    .tabel{
-    position:absolute;
-    background:red;
-    width:20px;
-    height:20px;
-    }
+   .BordInputs
+{
+    display: flex;
+    flex-direction: column;
+}
+.zal {
+    width: 700px;
+    height: 300px;
+    background: url("/static/images/boebestilling/bordene.jpg");
+    background-size:cover ;
+    position: relative;
+}
 
-    #stol1{
-     top:10px;
-        left:10px;
-    }
-        #stol2{
-     top:10px;
-        left:40px;
-    }
-        #stol3{
-     top:10px;
-        left:70px;
-    }
-        #stol4{
-     top:10px;
-        left:100px;
-    }
-    .Tnumber
-    {
-        display:none;
-    }
+.table {
+    position: absolute;
+    background: green;
+    width: 20px;
+    height: 20px;
+}
+.activ_Table
+{
+    background: yellow;
+    opacity: 0.5;
+}
+
+/**************************tabeles*********************************/
+.table0
+{
+    left: 39px;
+    bottom: 38px;
+    width: 90px;
+    height: 50px;
+    opacity: 0.3;
+}
+.table1
+{
+    left: 170px;
+    bottom: 140px;
+    width: 55px;
+    height: 40px;
+    opacity: 0.3;
+}
+.table2
+{
+    left: 482px;
+    bottom: 140px;
+    width: 55px;
+    height: 40px;
+    opacity: 0.3;
+}
+.table3
+{
+    left: 580px;
+    bottom: 38px;
+    width: 90px;
+    height: 50px;
+    opacity: 0.3;
+}
+.table4
+{
+    left: 270px;
+    bottom: 140px;
+    width: 55px;
+    height: 40px;
+    opacity: 0.3;
+}
+.table5
+{
+    left: 380px;
+    bottom: 140px;
+    width: 55px;
+    height: 40px;
+    opacity: 0.3;
+}
+.table6
+{
+    left: 270px;
+    bottom: 38px;
+    width: 70px;
+    height: 50px;
+    opacity: 0.3;
+
+}
+.table7
+{
+    left: 360px;
+    bottom: 38px;
+    width: 70px;
+    height: 50px;
+    opacity: 0.3;
+}
+.table8
+{
+    left: 73px;
+    bottom: 105px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+
+}
+.table9
+{
+    left: 590px;
+    bottom: 105px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+
+}
+.table10
+{
+
+    left: 200px;
+    bottom: 95px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+}
+.table11
+{
+    left: 465px;
+    bottom: 90px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+
+}
+.table12
+{
+    left: 325px;
+    bottom: 100px;
+    width: 50px;
+    height: 30px;
+    opacity: 0.3;
+}
+/******************************************************/
+.Tnumber {
+    display: none;
+    position: absolute;
+    width: 2%;
+    left: 49%;
+}
+.Tnumber1 {
+    margin: 10px 0px;
+}
+.BordBestiling
+{
+    min-width: 20%;
+}
+#BordForm
+{
+    width: 100%;
+}
+#BordForm
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+#MainBordbestilling
+{
+    width: 90%;
+}
+.BordInputs
+{
+
+    width: 40%;
+}
+
+.modalWraper
+{
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(127, 229, 255, 0.56);
+    display: flex;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+}
+.modalContent
+{
+    padding: 30px;
+    text-align: center;
+    width: 50%;
+    background-color: white;
+    height: 50vh;
+    border-radius: 30px;
+    position: relative;
+}
+.modalClose
+{
+    position: absolute;
+    right:10px;
+    top: 10px;
+    font-size: 30px;
+}
 
 /**************Kvitering***************/
     #kvitering
