@@ -1,47 +1,22 @@
 {%extends 'Sablon.html'%}
 {%load static%}
 {%block content%}
-    <div id="MainBordbestilling" style=" margin-top: 150px;">
+    <form>
+        <input type="text" class="Tnumber1"  name="Name" placeholder="Nmae">
+        <input type="tel" class="Tnumber2" name="Phone">
+        <input type="email" class="Tnumbe3" name="email">
+        <input type="date" class="Tnumbe3" name="date">
+        <h5>Select tabel</h5>
+<div class="zal">
+    <div id="stol1" class="tabel"></div>
+    <div id="stol2" class="tabel"></div>
+    <div id="stol3" class="tabel"></div>
+    <div id="stol4" class="tabel"></div>
 
-            <form id="BordForm">
-                <div class="BordInputs">
-                    <input required type="number" min="1" max="53" class="Tnumber1" name="Antal" placeholder="Antal personer">
-                    <input required type="date" class="Tnumber1" name="date" placeholder="date">
-                    <input required type="time" class="Tnumber1" name="time">
-                    <input required type="text" class="Tnumber1" name="allergener" placeholder="Allergener">
-                    <input required type="name" class="Tnumber1" name="Name" placeholder="Navn og Etternavn">
-                    <input required type="tel" class="Tnumber1" name="Phone" placeholder="Phone number">
-                    <input required type="email" class="Tnumber1" name="email" placeholder="email">
-                </div>
+            <input type="text" class="Tnumber"  id="Tnumber" name="tableNumber">
 
-                <div class="BordBestiling">
-                    <p style="font-size: 30px">Select tabel</p>
-                    <div class="zal" style="margin: 20px 0px">
-
-
-                        <input type="text" class="Tnumber" id="Tnumber" name="tableNumber">
-
-                    </div>
-                    <input type="submit" style="width: 200px; height: 50px">
-                </div>
-
-            </form>
-
-        </div>
-{%endblock content%}
-{% block someInter%}
-<div class="modalWraper" style="display: none">
-    <div class="modalContent">
-        <span class="modalClose">X</span>
-        <div class="modalText">
-            <h2>Hei kære <span id="Name">kunder</span></h2>
-            <h2>Vi har reservert for deg bordet/ene:<span id="tableNumber"></span></h2>
-            <h2>Tid: <span id="dateTime"></span></h2>
-            <h2>Alergener: <span id="Alergener"></span></h2>
-            <h2>Telefon nummer: <span id="TelefonNum"></span></h2>
-            <h2>Email: <span id="EmailText"></span></h2>
-        </div>
-        <h1><p class="modal-Error" style="display: none">Velg bordet</p></h1>
-    </div>
 </div>
-{%endblock someInter%}
+
+         <input type="submit">
+            </form>
+{%endblock%}
